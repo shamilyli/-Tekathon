@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Footprints</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <style type="text/css">
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+<nav class="navbar navebar-fixed-top container-fluid">
+    <div class="navbar-header">
+        <img id="oneday" src="/img/oneday-brown.png" alt="oneday">
+    </div>
+    <div class="collapse navbar-collapse tabs row" id="mobile-nav container-fluid">
+        <ul class="nav">
+            <a href="/">
+                <li>Home</li>
+            </a>
+            <a id="rec" href="/#{{user._id}}/recommendations">
+                <li>Recommendations</li>
+            </a>
+            <a href="/#{{user._id}}/footprints">
+                <li>Footprints</li>
+            </a>
+            <a id="Profile" href="/#{{user._id}}">
+                <li>Profile</li>
+            </a>
+            <a id="sign-up" href="/">
+                <li>Logout</li>
+            </a>
+        </ul>
+    </div>
+</nav>
+
+<body>
+<div id="map"></div>
+<script>
+    function initMap() {
+        var defaultLocation = {
+            lat: 49.2462,
+            lng: -123.126
+        }
+        var map = new google.maps.Map(document.getElementById('map'), {
+            center: defaultLocation,
+            zoom: 13
+        });
+
+
+        var infowindow1 = new google.maps.InfoWindow({
+            content: '<div id="content">' +
+            '<div id="siteNotice">' + '<h3>Sakura Blossom</h3>' + '<img src="/img/sakura.jpeg">'+
+            '</div>' + '</div>',
+            maxWidth: 200
+        });
+        var marker1 = new google.maps.Marker({
+            position: {
+                lat: 49.2462,
+                lng: -123.126
+            },
+            map: map,
+            icon:'/img/marker-2.png'
+        });
+
+        // var marker2 = new google.maps.Marker({
+        //     position: {
+        //         lat: 49.286848,
+        //         long: -123.112246
+        //     }
+        //     // icon:'../img/marker-2.png'
+        // });
+
+        marker1.setMap(map);
+        marker1.addListener('click', function() {
+            infowindow1.open(map, marker1);
+        });
+    }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjVJj7UJVjfb5G1_-LPkHEJgRseORP6tU
+&callback=initMap">
+</script>
+<footer class="margin-top">
+    <h4>info@oneday.com</h4>
+    <h6>Proudly created by oneday group</h6>
+</footer>
+<script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/script.js"></script>
+</body>
+
+</html>

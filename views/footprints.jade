@@ -1,0 +1,16 @@
+extends layout
+
+block content
+
+    a(href='/') Home
+    br
+    a(href='/#{user._id}/recommendations') Recommendations
+    br
+    a(href='/#{user._id}/footprints') Footprints
+    br
+    a(href='/#{user._id}') Profile
+    br
+    a(href='/') Logout
+    br
+
+    h1 Footprints of #{user.name} and #{user.partner}:

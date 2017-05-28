@@ -1,0 +1,15 @@
+extends layout
+
+block content
+
+    a(href='/') Home
+    br
+
+    form(method="POST", action=action)
+        label Username
+        input(name='username', type='text')
+        br
+        label Password
+        input(name='password', type='password')
+        br
+        input(placeholder='Login', type='submit')

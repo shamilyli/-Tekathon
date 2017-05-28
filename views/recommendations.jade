@@ -1,0 +1,24 @@
+extends layout
+
+block content
+
+    a(href='/') Home
+    br
+    a(href='/#{user._id}/recommendations') Recommendations
+    br
+    a(href='/#{user._id}/footprints') Footprints
+    br
+    a(href='/#{user._id}') Profile
+    br
+    a(href='/') Logout
+    br
+
+    h1= "Hello, " +  user.username
+    br
+    h2 Recommended activities based on you and your partner's preferences:
+    h3 Restaurants:
+    ul#recommended-restaurants
+    h3 Movies:
+    ul#recommended-movies
+    h3 Events:
+    ul#recommended-events
